@@ -1,0 +1,4 @@
+const SUS=[ '/system/bin/su','/system/xbin/su','/sbin/su','/system/su','/system/bin/busybox','/system/xbin/busybox' ];
+function isSus(p){ try{ const s=p.readCString(); return !!s && (SUS.indexOf(s)!==-1 || s.indexOf('/proc/mounts')!==-1 || s.indexOf('/proc/self/mounts')!==-1);} catch(_){ return false; } }
+function hook(name, idx){ try{ const addr=Module.getExportByName(null,name); Interceptor.attach(addr,{ onEnter(args){ const pp=idx>=0?args[idx]:null; if(pp && isSus(pp)){ this.block=true; this.path=pp.readCString(); } }, onLeave(ret){ if(this.block){ console.log('[+] Blocked',name,'on',this.path); ret.replace(ptr(-1)); } } }); console.log('[+] Hooked',name); } catch(e){} }
+hook('open',0); hook('openat',1); hook('access',0); hook('stat',0); hook('lstat',0);
