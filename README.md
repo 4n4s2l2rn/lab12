@@ -22,6 +22,7 @@ adb devices
 # List of devices attached
 # emulator-5554   device
 ```
+<img width="1702" height="269" alt="image" src="https://github.com/user-attachments/assets/93aeb72d-a808-4975-ae81-7640ff5d722f" />
 
 ---
 
@@ -115,6 +116,7 @@ frida -U -f com.scottyab.rootbeer.sample `
   -l .\bypass_rwpaths.js `
   --no-pause
 ```
+<img width="1707" height="790" alt="image" src="https://github.com/user-attachments/assets/e182a57d-6956-4d93-872f-a61954aaf6fa" />
 
 ### Logs Frida complets
 
@@ -166,6 +168,7 @@ Spawned `com.scottyab.rootbeer.sample`. Resuming main thread!
 
 [✔✔✔] All hooks active — NOT ROOTED ✅
 ```
+<img width="2559" height="1474" alt="image" src="https://github.com/user-attachments/assets/4648ab72-7752-4fee-bf14-9f722781112f" />
 
 ---
 
